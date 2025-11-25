@@ -17,77 +17,78 @@
             /* Lighter, softer shadow for a more aesthetic, floating look */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 0 15px rgba(59, 130, 246, 0.1); 
         }
-        /* Header Banner (No need for profile pic positioning, so we adjust height) */
+        /* Header Banner - Placeholder for Data Analytics Vector */
         .header-bg {
-            /* Placeholder for a professional background image/pattern */
-            background-image: url('https://placehold.co/400x120/d1d9e6/3b82f6?text=Data+Driven+Solutions');
+            /* REPLACE THIS URL with your actual hosted image for Data Analytics (e.g., from Freepik) */
+            background-image: url('https://placehold.co/400x120/3b82f6/ffffff?text=Data+Analytics+Visualization'); 
             background-size: cover;
             background-position: center;
             height: 120px; 
             border-top-left-radius: 12px; 
             border-top-right-radius: 12px;
             position: relative;
-            /* Simple overlay to make text readable if an image is used */
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden; /* Ensure text doesn't flow outside */
         }
         .header-text {
             color: #ffffff;
             font-size: 1.5rem;
             font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-        /* Adjusted Icon styling for primary contact (Email) */
-        .contact-icon {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: #3b82f6; /* Blue background for primary icon */
-            color: white;
-            font-size: 28px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-        }
-        .contact-icon:hover {
-            transform: translateY(-2px) scale(1.05);
-            background-color: #2563eb;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            padding: 0.5rem 1rem;
+            background: rgba(0, 0, 0, 0.1); /* Slight overlay for visibility */
+            border-radius: 4px;
         }
 
-        /* Social Icon styling */
-        .social-icon {
-            width: 40px;
-            height: 40px;
+        /* Unified Icon styling for all 4 contacts */
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem 0;
+            transition: transform 0.2s;
+        }
+        .contact-link:hover {
+            transform: translateY(-2px);
+        }
+        .contact-link:hover .icon-circle {
+            background-color: #2563eb;
+            color: white;
+            box-shadow: 0 6px 10px rgba(59, 130, 246, 0.4);
+        }
+        .icon-circle {
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background-color: #e2e8f0; /* Soft gray for social icons */
-            color: #4a5568; 
-            font-size: 20px;
-            transition: all 0.2s;
+            background-color: #e2e8f0; /* Soft gray background */
+            color: #3b82f6; /* Blue icon color */
+            font-size: 24px;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+            border: 1px solid #cbd5e0;
         }
-        .social-icon:hover {
-            background-color: #3b82f6;
-            color: white;
-            transform: scale(1.1);
+        
+        .icon-email {
+             background-color: #e2e8f0; /* Primary Blue */
+             color: #3b82f6;
+             box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
         }
         .text-detail {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 500;
             color: #4a5568;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
     <!-- Card Container --><div class="w-full max-w-md bg-white card-shadow rounded-xl pb-6 relative overflow-hidden">
-
-        <!-- Header Background Banner --><div class="header-bg">
-            <span class="header-text">Ruchita Shah</span>
-        </div>
 
         <!-- Main Content Area --><div class="px-8 pt-8 pb-4 text-center"> 
             
@@ -104,38 +105,47 @@
                 </p>
             </div>
 
-            <!-- Primary Contact (Only Email now, centered) --><div class="flex flex-col items-center mb-10">
-                <a href="mailto:ruchitas.cs@gmail.com" class="contact-icon mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13h9a2 2 0 002-2V5a2 2 0 00-2-2H3a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
+            <!-- 4-Column Contact Grid (Flexbox layout) --><div class="flex justify-between w-full mb-6 border-t border-gray-200 pt-6">
+                
+                <!-- 1. Email --><a href="mailto:ruchitas.cs@gmail.com" class="contact-link w-1/4">
+                    <div class="icon-circle icon-email">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13h9a2 2 0 002-2V5a2 2 0 00-2-2H3a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <span class="text-detail">Email</span>
                 </a>
-                <span class="mt-1 text-detail font-medium text-gray-600">REACH OUT VIA EMAIL</span>
-                <a href="mailto:ruchitas.cs@gmail.com" class="text-sm font-semibold text-blue-600 hover:underline">ruchitas.cs@gmail.com</a>
-            </div>
 
-            <!-- Social Media Icons (Centered) --><div class="flex justify-center space-x-5 mb-4 border-t border-gray-200 pt-4">
-                
-                <!-- LinkedIn --><a href="https://www.linkedin.com/in/ruchita-s-shah/" target="_blank" class="social-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.153-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
+                <!-- 2. Portfolio --><a href="https://datascienceportfol.io/ruchitascs" target="_blank" class="contact-link w-1/4">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <span class="text-detail">Portfolio</span>
                 </a>
                 
-                <!-- Portfolio Icon --><a href="https://datascienceportfol.io/ruchitascs" target="_blank" class="social-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
+                <!-- 3. LinkedIn --><a href="https://www.linkedin.com/in/ruchita-s-shah/" target="_blank" class="contact-link w-1/4">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.153-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </div>
+                    <span class="text-detail">LinkedIn</span>
                 </a>
-                 
-                <!-- GitHub --><a href="[YOUR GITHUB PROFILE URL]" target="_blank" class="social-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.862 8.12 6.83 9.49.5.09.68-.217.68-.483 0-.237-.008-.87-.013-1.702-2.782.603-3.368-1.34-3.368-1.34-.454-1.154-1.107-1.46-1.107-1.46-.906-.62.068-.608.068-.608 1.002.07 1.53 1.026 1.53 1.026.892 1.528 2.341 1.087 2.91.831.09-.646.35-1.087.636-1.338-2.22-.253-4.555-1.11-4.555-4.945 0-1.091.39-1.986 1.029-2.685-.103-.253-.445-1.272.098-2.65 0 0 .84-.27 2.75 1.023A9.554 9.554 0 0112 5.095c.85 0 1.706.115 2.502.34.026-.063.064-.127.106-.193.18-.284.4-.555.666-.8C16.685 7.427 17.5 7.97 17.5 7.97c.542 1.378.2 2.397.098 2.65.64.699 1.029 1.594 1.029 2.685 0 3.843-2.339 4.686-4.562 4.935.359.31.678.917.678 1.854 0 1.338-.013 2.417-.013 2.748 0 .269.18.58.688.483C21.144 20.09 24 16.37 24 11.97 24 6.463 19.522 2 14 2h-2z" clip-rule="evenodd" />
-                    </svg>
-                 </a>
+                
+                <!-- 4. GitHub --><a href="https://github.com/ruchitasms" target="_blank" class="contact-link w-1/4">
+                    <div class="icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.862 8.12 6.83 9.49.5.09.68-.217.68-.483 0-.237-.008-.87-.013-1.702-2.782.603-3.368-1.34-3.368-1.34-.454-1.154-1.107-1.46-1.107-1.46-.906-.62.068-.608.068-.608 1.002.07 1.53 1.026 1.53 1.026.892 1.528 2.341 1.087 2.91.831.09-.646.35-1.087.636-1.338-2.22-.253-4.555-1.11-4.555-4.945 0-1.091.39-1.986 1.029-2.685-.103-.253-.445-1.272.098-2.65 0 0 .84-.27 2.75 1.023A9.554 9.554 0 0112 5.095c.85 0 1.706.115 2.502.34.026-.063.064-.127.106-.193.18-.284.4-.555.666-.8C16.685 7.427 17.5 7.97 17.5 7.97c.542 1.378.2 2.397.098 2.65.64.699 1.029 1.594 1.029 2.685 0 3.843-2.339 4.686-4.562 4.935.359.31.678.917.678 1.854 0 1.338-.013 2.417-.013 2.748 0 .269.18.58.688.483C21.144 20.09 24 16.37 24 11.97 24 6.463 19.522 2 14 2h-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-detail">GitHub</span>
+                </a>
+                
             </div>
-                      
-         </div>
+            
+        </div>
 
         <!-- Footer --><div class="mt-6 text-center text-xs text-gray-500">
             <p>Ruchita Shah Digital Vcard, 2025</p>
